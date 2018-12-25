@@ -4,22 +4,32 @@ body {
   position: relative;
   margin: 0;
   padding: 0;
-  font-family: "Inter UI", sans-serif;
-  text-align: center;
-  color: white;
+  background: #000;
+}
+
+canvas {
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  z-index: 1;
 }
 
 .titan-background {
   position: absolute;
   width: 100%;
-  background-image: linear-gradient(-180deg, #000000 0%, #200835 100%);
-  overflow: hidden;
-  z-index: 1;
+  background: url(assets/bikini-bottom-sky.png) no-repeat fixed top left; 
+  background-size: cover;
   /* Make the rubber band scroll not show empty white space */
   top: -10%;
   height: 120%;
   min-height: 120vh;
   margin-bottom: -20%;
+}
+
+@media (min-width: 500px) {
+  .titan-background {
+    background: url("assets/conch-street.png") no-repeat fixed top left;
+  }
 }
 
 .stars {
@@ -37,27 +47,27 @@ body {
   background-image: url("assets/stars-L.svg");
   background-size: 890px;
   height: 750px;
-  animation: panning-stars 200s linear infinite alternate;
+  animation: panning-stars 50s linear infinite;
 }
 
 .stars-M {
   background-image: url("assets/stars-M.svg");
   height: 530px;
-  animation: panning-stars 300s linear infinite alternate;
+  animation: panning-stars 150s linear infinite;
 }
 
 .stars-S {
   background-image: url("assets/stars-S.svg");
   height: 370px;
-  animation: panning-stars 400s linear infinite alternate;
+  animation: panning-stars 250s linear infinite;
 }
 
 @keyframes panning-stars {
   from {
-    transform: translate(-20%, 0%);
+    transform: translate(0%, -20%);
   }
   to {
-    transform: translate(-80%, -40%);
+    transform: translate(0%, 100%);
   }
 }
 
